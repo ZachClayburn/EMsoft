@@ -31,6 +31,7 @@ if (EXISTS ${PROJECT_SOURCE_DIR}/Source/EMSphInx)
   add_subdirectory(${PROJECT_SOURCE_DIR}/Source/EMSphInx/EMSphInxLib ${PROJECT_BINARY_DIR}/EMsoftSphInxLib)
   set(MODALITY_DIRS
     DictionaryIndexing
+    OLIO
     OM
     SEM
     EMSphInx/EMSphInxSrc
@@ -42,6 +43,7 @@ if (EXISTS ${PROJECT_SOURCE_DIR}/Source/EMSphInx)
 else()
   set(MODALITY_DIRS
     DictionaryIndexing
+    OLIO
     OM
     SEM
     TEM
@@ -90,13 +92,7 @@ if( EMsoft_ENABLE_EMsoftWorkbench )
                     "FALSE"
                     "${EMsoft_BINARY_DIR}"
                     "EMsoftWorkbench")
-
-  add_subdirectory( ${PROJECT_SOURCE_DIR}/Source/H5Support ${PROJECT_BINARY_DIR}/H5Support)
-
-  add_subdirectory( ${PROJECT_SOURCE_DIR}/Source/OrientationLib ${PROJECT_BINARY_DIR}/OrientationLib)
-
-  add_subdirectory( ${PROJECT_SOURCE_DIR}/Source/SIMPLib ${PROJECT_BINARY_DIR}/SIMPLib)
-
-  add_subdirectory(${PROJECT_SOURCE_DIR}/Source/EMsoftWorkbench ${PROJECT_BINARY_DIR}/EMsoftWorkbench)
+  
+  include(${PROJECT_SOURCE_DIR}/Source/EMsoftWorkbench/SourceList.cmake)
 endif()
 
